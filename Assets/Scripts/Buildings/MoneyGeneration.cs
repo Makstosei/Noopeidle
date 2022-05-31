@@ -26,7 +26,6 @@ public class MoneyGeneration : MonoBehaviour
             canGenerate = true;
             StartCoroutine(Generate());
         }
-
     }
 
 
@@ -39,9 +38,7 @@ public class MoneyGeneration : MonoBehaviour
             if (GeneratedMoneys.Count + 1 > xLenght * zLenght * yLenght)
             {
                 canGenerate = false;
-
             }
-
             if (canGenerate)
             {
                 var tempMoney = Instantiate(moneyRef, generatePoint.transform);
@@ -63,7 +60,6 @@ public class MoneyGeneration : MonoBehaviour
                     }
                     x = GeneratedMoneys.Count % xLenght;
                 }
-
                 if (GeneratedMoneys.Count > (xLenght * zLenght) && GeneratedMoneys.Count % (xLenght * zLenght) == 1)
                 {
                     y++;
@@ -71,10 +67,8 @@ public class MoneyGeneration : MonoBehaviour
                 tempMoney.transform.localPosition = new Vector3(1 + -1 * x, +0.4f * y, -0.5f * z);
                 yield return new WaitForSecondsRealtime(1f);
             }
-
             isSpawned = false;
         }
-
     }
 
 }
